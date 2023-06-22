@@ -24,6 +24,7 @@
     "eslint": "^7.32.0",
     "eslint-config-apart": "workspace:*",
     "eslint-plugin-lodash": "^7.4.0",
+    "eslint-plugin-strict-null-checks": "^0.1.0",
     "husky": "^8.0.3",
     "lint-staged": "^13.2.2",
     "prettier": "^2.5.1",
