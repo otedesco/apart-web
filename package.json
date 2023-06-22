@@ -1,18 +1,32 @@
 {
+  "name": "apart-web",
+  "version": "0.0.1",
   "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "packageManager": "pnpm@8.6.0",
   "scripts": {
+    "preinstall": "npx only-allow pnpm",
     "build": "turbo run build",
     "dev": "turbo run dev",
     "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "lint:report": "eslint --no-error-on-unmatched-pattern --max-warnings=0",
+    "format:check": "prettier --check \"**/*.{js,jsx,ts,tsx,json}\"",
+    "format:write": "prettier --write \"**/*.{js,jsx,ts,tsx,json}\"",
+    "format:check:staged": "lint-staged",
+    "clean": "turbo run clean && rm -rf node_modules",
+    "prepare": "husky install"
   },
   "devDependencies": {
     "@turbo/gen": "^1.9.7",
     "eslint": "^7.32.0",
-    "eslint-config-custom": "workspace:*",
+    "eslint-config-apart": "workspace:*",
+    "eslint-plugin-lodash": "^7.4.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.2",
     "prettier": "^2.5.1",
     "turbo": "latest"
-  },
-  "packageManager": "pnpm@7.15.0",
-  "name": "apart-web"
+  }
 }
