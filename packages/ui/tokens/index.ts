@@ -17,8 +17,8 @@ export const tokens = {
     dark: darkColors,
   },
   fonts: {
-    normal: "'Kanit', sans-serif",
-    mono: 'SFMono, ui-monospace, monospace',
+    normal: 'Untitled Sans, -apple-system, system-ui, sans-serif',
+    mono: 'Söhne Mono, menlo, monospace',
   },
   space: {
     '0px': '0px',

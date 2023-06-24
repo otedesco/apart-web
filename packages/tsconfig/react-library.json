@@ -3,9 +3,16 @@
   "display": "React Library",
   "extends": "./base.json",
   "compilerOptions": {
-    "jsx": "react-jsx",
-    "lib": ["ES2015", "DOM"],
+    "noEmit": false,
+    "allowJs": true,
     "module": "ESNext",
-    "target": "es6"
+    "jsx": "react-jsx",
+    "target": "es2020",
+    "importHelpers": true,
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "forceConsistentCasingInFileNames": true,
+    "esModuleInterop": true
   }
 }

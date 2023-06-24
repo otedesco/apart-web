@@ -1,0 +1,48 @@
+{
+  "name": "ui-lib",
+  "version": "0.0.1",
+  "description": "Set of UI components for Apart projects",
+  "main": "src/index.ts",
+  "sideEffects": [
+    "*.css.ts"
+  ],
+  "private": true,
+  "scripts": {
+    "lint": "eslint 'src/**/*.{js,jsx,ts,tsx}'",
+    "format:check": "prettier --check --loglevel error 'src/**/*.{js,jsx,ts,tsx}'",
+    "format:write": "prettier --write 'src/**/*.{js,jsx,ts,tsx}'",
+    "test": "vitest --run",
+    "update:snapshot": "vitest -u"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.16.5",
+    "@types/lodash": "^4.14.195",
+    "@types/react": "^18.2.13",
+    "@types/react-dom": "^18.2.6",
+    "@vanilla-extract/vite-plugin": "^3.8.2",
+    "@vitejs/plugin-react": "^4.0.1",
+    "jest-styled-components": "^7.1.1",
+    "jsdom": "^22.1.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "styled-components": "6.0.0-rc.6",
+    "ts-jest": "^29.1.0",
+    "tsconfig": "workspace:*",
+    "ui": "workspace:*",
+    "vitest": "^0.32.2"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "styled-components": "6.0.0-rc.6",
+    "ui": "workspace:*"
+  },
+  "dependencies": {
+    "@types/styled-system": "^5.1.16",
+    "lodash": "^4.17.21",
+    "styled-system": "^5.1.5"
+  }
+}
