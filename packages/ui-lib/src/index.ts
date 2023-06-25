@@ -1,3 +1,2 @@
-export const foo = () => errorMessage;
-
 let errorMessage = "fooo";
+export const foo = () => errorMessage;

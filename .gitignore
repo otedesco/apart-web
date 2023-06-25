@@ -48,6 +48,7 @@ debug.log*
 
 # turbo
 .turbo
+**/.turbo/**
 .vercel
 
 # store for local dev scripts
@@ -55,3 +56,4 @@ scripts/dev/**
 
 # typescript
 *.tsbuildinfo
+**/stories/**
