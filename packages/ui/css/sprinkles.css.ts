@@ -5,7 +5,16 @@ import { vars } from './vars.css'
 
 const flexAlignment = ['flex-start', 'center', 'start', 'flex-end', 'stretch'] as const
 
-const negativeSpace = {}
+const negativeSpace = {
+  // '-1px': `${calc(vars.space['1px']).negate()}`,
+  // '-1': `${calc(vars.space['1']).negate()}`,
+  // '-2': `${calc(vars.space['2']).negate()}`,
+  // '-3': `${calc(vars.space['3']).negate()}`,
+  // '-4': `${calc(vars.space['4']).negate()}`,
+  // '-5': `${calc(vars.space['5']).negate()}`,
+  // '-6': `${calc(vars.space['6']).negate()}`,
+  // '-7': `${calc(vars.space['7']).negate()}`,
+}
 
 const extendedSpace = {
   '100%': '100%',
@@ -168,6 +177,7 @@ const responsiveProperties = defineProperties({
 })
 
 const unresponsiveProperties = defineProperties({
+  // conditions: {},
   properties: {
     isolation: ['isolate'],
     objectFit: ['contain', 'cover', 'none'],

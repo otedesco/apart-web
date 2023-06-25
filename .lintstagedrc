@@ -1,6 +1,6 @@
 {
   "**/*.{js,jsx,ts,tsx}": [
-    "turbo run lint",
+    "pnpm run lint",
     "prettier --write"
   ],
   "**/*.json": [

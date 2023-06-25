@@ -5,11 +5,17 @@ export const additionalColors = {}
 export const lightColors = {
   ...baseColors,
   ...additionalColors,
-  cardBorder: '#E7E3EB',
+  background: '#FFF',
+  backgroundAlt: '#FAFAFA',
+  cardBorder: '#EAEAEA',
+  contrast: '#000',
 }
 
 export const darkColors = {
   ...baseColors,
   ...additionalColors,
-  cardBorder: '#383241',
+  background: '#000',
+  backgroundAlt: '#111',
+  cardBorder: '#333',
+  contrast: '#FFF',
 }

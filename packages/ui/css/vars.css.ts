@@ -1,5 +1,5 @@
 import { createGlobalTheme, createGlobalThemeContract } from '@vanilla-extract/css'
-import * as deepmerge from 'deepmerge'
+import deepmerge from 'deepmerge'
 import { Mode, tokens } from '../tokens'
 import type { Theme } from './types'
 
