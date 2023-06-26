@@ -1,4 +1,5 @@
 import Footer from "./Footer";
+import { footerLinks, socials } from "./config";
 
 export default {
   title: "Layout/Footer",
@@ -12,7 +13,8 @@ export default {
 
 export const LoggedIn = {
   args: {
-    // Component parameters
+    items: footerLinks,
+    socials,
   },
 };
 
