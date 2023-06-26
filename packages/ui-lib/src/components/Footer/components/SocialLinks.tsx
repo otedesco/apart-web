@@ -1,5 +1,5 @@
 import React, { PropsWithChildren, memo } from "react";
-import { useTheme } from "styled-components";
+
 import { FlexProps } from "../../Box";
 import Flex from "../../Box/Flex";
 import Link from "../../Link/Link";

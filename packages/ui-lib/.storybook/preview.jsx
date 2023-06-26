@@ -40,7 +40,7 @@ const StyledThemeProvider = (props) => {
 
 const StorybookThemeProvider = (props) => {
   return (
-    <NextThemeProvider>
+    <NextThemeProvider enableSystem>
       <StyledThemeProvider {...props} />
     </NextThemeProvider>
   );

@@ -1,5 +1,5 @@
 import React, { PropsWithChildren } from "react";
-import { useIsMounted } from "hooks";
+import { useIsMounted, useTheme } from "hooks";
 
 import {
   StyledFooter,
@@ -15,9 +15,13 @@ import { Box, Flex } from "../Box";
 import { LogoWithTextIcon } from "../Svg";
 import { Link } from "../Link";
 import { Skeleton } from "../Skeleton";
+import { ThemeSwitcher } from "../ThemeSwitcher";
+import { Theme } from "../ThemeSwitcher/types";
 
 function Footer({ items, socials, ...props }: PropsWithChildren<FooterProps>) {
   const isMounted = useIsMounted();
+  const { themeValue, setTheme } = useTheme();
+
   return (
     <StyledFooter p={["40px 16px", null, "56px 40px 32px 40px"]} justifyContent="center" position="relative" {...props}>
       <Flex flexDirection="column" width={["100%", null, "1200px;"]}>
@@ -60,8 +64,8 @@ function Footer({ items, socials, ...props }: PropsWithChildren<FooterProps>) {
           justifyContent="space-between"
         >
           <Flex order={[2, null, 1]} alignItems="center">
-            <Skeleton width="56px" height="32px" isDataReady={isMounted}>
-              foo
+            <Skeleton variant="round" width="106px" height="40px" isDataReady={isMounted}>
+              <ThemeSwitcher theme={themeValue as Theme} toggleTheme={setTheme} />
             </Skeleton>
           </Flex>
         </StyledToolsContainer>
