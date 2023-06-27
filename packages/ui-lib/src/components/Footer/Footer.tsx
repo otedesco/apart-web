@@ -26,7 +26,7 @@ function Footer({ items, socials, ...props }: PropsWithChildren<FooterProps>) {
     <StyledFooter p={["40px 16px", null, "56px 40px 32px 40px"]} justifyContent="center" position="relative" {...props}>
       <Flex flexDirection="column" width={["100%", null, "1200px;"]}>
         <StyledIconMobileContainer display={["block", null, "none"]}>
-          <LogoWithTextIcon width="130px" gradient />
+          <LogoWithTextIcon id="mobile" width="130px" gradient dinamic />
         </StyledIconMobileContainer>
         <Flex
           order={[2, null, 1]}
@@ -52,17 +52,16 @@ function Footer({ items, socials, ...props }: PropsWithChildren<FooterProps>) {
             </StyledList>
           ))}
           <Box display={["none", null, "block"]}>
-            <LogoWithTextIcon width="160px" />
+            <LogoWithTextIcon id="desktop" width="160px" gradient dinamic />
           </Box>
         </Flex>
-        {socials?.length && (
-          <StyledSocialLinks socials={socials} order={[2]} pb={["42px", null, "32px"]} mb={["0", null, "32px"]} />
-        )}
+
         <StyledToolsContainer
           order={[1, null, 3]}
           flexDirection={["column", null, "row"]}
           justifyContent="space-between"
         >
+          {socials?.length && <StyledSocialLinks socials={socials} pb={["20px", "16px", 0]} />}
           <Flex order={[2, null, 1]} alignItems="center">
             <Skeleton variant="round" width="106px" height="40px" isDataReady={isMounted}>
               <ThemeSwitcher theme={themeValue as Theme} toggleTheme={setTheme} />

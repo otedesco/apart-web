@@ -1,5 +1,5 @@
 export const baseColors = {
-  warning: '#F5A623',
+  brandPrimary: '#53DEE9',
 }
 
 export const additionalColors = {}

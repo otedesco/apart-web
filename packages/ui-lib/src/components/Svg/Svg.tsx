@@ -19,6 +19,7 @@ const spinStyle = css`
 const Svg = styled.svg.withConfig({
   shouldForwardProp: (prop) => !["spin"].includes(prop),
 })<SvgProps>`
+  cursor: pointer;
   align-self: center; // Safari fix
   fill: ${({ theme, color }) =>
     getThemeValue(theme, `colors.${color}`, color)}; // should use color and currentColor in svg path

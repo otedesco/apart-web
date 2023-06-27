@@ -27,7 +27,7 @@ export const StyledListItem = styled.li<{ $isHighlighted?: boolean }>`
   }
   & > a:hover {
     color: ${({ theme }) => theme.colors.text};
-    transition: color 0.5s ease;
+    transition: color 0.2s ease;
   }
 `;
 
@@ -40,12 +40,13 @@ export const StyledIconMobileContainer = styled(Box)`
 `;
 
 export const StyledSocialLinks = styled(SocialLinks)`
-  border-bottom: 1px solid ${({ theme }) => theme.colors.cardBorder};
+  color: ${({ theme }) => theme.colors.textSubtle};
   & > a {
     border-radius: ${({ theme }) => theme.radii.small};
     &:hover {
       background-color: ${({ theme }) => theme.colors.cardBorder};
-      transition: background-color 0.5s ease;
+      color: ${({ theme }) => theme.colors.text};
+      transition: color, background-color 0.2s ease;
     }
   }
 `;

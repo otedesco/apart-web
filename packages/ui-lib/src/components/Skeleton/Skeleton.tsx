@@ -5,6 +5,18 @@ import { animation as ANIMATION, SkeletonProps, variant as VARIANT } from "./typ
 import { animationVariants, animationMap, animationHandler } from "../../util/animationToolkit";
 import { AnimationWrapper, Pulse, SkeletonWrapper, Waves } from "./styles";
 
+export function SkeletonSimple({
+  variant = VARIANT.RECT,
+  animation = ANIMATION.PULSE,
+  ...props
+}: PropsWithChildren<SkeletonProps>) {
+  if (animation === ANIMATION.WAVES) {
+    return <Waves variant={variant} {...props} />;
+  }
+
+  return <Pulse variant={variant} {...props} />;
+}
+
 function Skeleton({
   variant = VARIANT.RECT,
   animation = ANIMATION.PULSE,

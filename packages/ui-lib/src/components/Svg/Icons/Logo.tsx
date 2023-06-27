@@ -1,4 +1,5 @@
-import React, { useCallback, useState } from "react";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import React, { useCallback, useState, memo } from "react";
 import { m as motion } from "framer-motion";
 import { useTheme } from "hooks";
 import { vars } from "ui/css/vars.css";
@@ -10,7 +11,7 @@ const useMouseEventListener = () => {
   const [isMouseInside, setIsMouseInside] = useState(false);
   const handleMouseEvent = useCallback(() => setIsMouseInside(!isMouseInside), [isMouseInside]);
 
-  return { isMouseInside, handleMouseEvent };
+  return [isMouseInside, handleMouseEvent];
 };
 
 function DinamicStop({ color, stopColor, isMouseInside, ...rest }: any) {
@@ -24,7 +25,7 @@ function DinamicStop({ color, stopColor, isMouseInside, ...rest }: any) {
         }}
         transition={{
           ease: "linear",
-          duration: 0.4,
+          duration: 0.2,
         }}
         {...rest}
       />
@@ -38,7 +39,6 @@ function StaticStop({ stopColor, ...rest }: any) {
 
 function GradientDefinitions(props: any) {
   const { color, dinamic, isMouseInside, fillerId, ...rest } = props;
-
   return (
     <defs>
       <linearGradient x1="17.7549" y1="17" x2="39.2549" y2="36.5" gradientUnits="userSpaceOnUse" id={fillerId}>
@@ -56,11 +56,11 @@ export function LogoIcon(props: any) {
     dinamic = false,
     color = theme?.colors.contrast || vars.colors.contrast,
     stopColor = theme?.colors.primaryBright || vars.colors.contrast,
+    id,
     ...rest
   } = props;
-  const { isMouseInside, handleMouseEvent } = useMouseEventListener();
-  const FILLER_ID = "linear";
-
+  const [isMouseInside, handleMouseEvent] = useMouseEventListener();
+  const FILLER_ID = `${id}-linear`;
   const fill = gradient ? `url(#${FILLER_ID})` : color;
 
   return (
@@ -95,14 +95,15 @@ export function LogoIcon(props: any) {
 export function LogoWithTextIcon(props: any) {
   const { theme } = useTheme();
   const {
-    gradient = false,
-    dinamic = false,
+    gradient,
+    dinamic,
     color = theme?.colors.contrast || vars.colors.contrast,
-    stopColor = theme?.colors.primaryBright || vars.colors.contrast,
+    stopColor = theme?.colors.brandPrimary || vars.colors.brandPrimary,
+    id,
     ...rest
   } = props;
-  const { isMouseInside, handleMouseEvent } = useMouseEventListener();
-  const FILLER_ID = "linear-with-text";
+  const [isMouseInside, handleMouseEvent] = useMouseEventListener();
+  const FILLER_ID = `${id}-linear-with-text`;
   const fillLogo = gradient ? `url(#${FILLER_ID})` : color;
 
   return (
@@ -140,4 +141,4 @@ export function LogoWithTextIcon(props: any) {
   );
 }
 
-export default LogoIcon;
+export default memo(LogoIcon);
