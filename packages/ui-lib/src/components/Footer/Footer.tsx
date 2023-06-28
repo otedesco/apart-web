@@ -18,7 +18,7 @@ import { Skeleton } from "../Skeleton";
 import { ThemeSwitcher } from "../ThemeSwitcher";
 import { Theme } from "../ThemeSwitcher/types";
 
-function Footer({ items, socials, ...props }: PropsWithChildren<FooterProps>) {
+const Footer = ({ items, socials, ...props }: PropsWithChildren<FooterProps>) => {
   const isMounted = useIsMounted();
   const { themeValue, setTheme } = useTheme();
 
@@ -71,6 +71,6 @@ function Footer({ items, socials, ...props }: PropsWithChildren<FooterProps>) {
       </Flex>
     </StyledFooter>
   );
-}
+};
 
 export default Footer;

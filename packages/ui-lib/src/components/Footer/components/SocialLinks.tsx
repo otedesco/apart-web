@@ -15,7 +15,7 @@ export type SocialLinksProps = FlexProps & {
   socials: SocialLinkType[];
 };
 
-function SocialLinks({ socials, ...props }: PropsWithChildren<SocialLinksProps>) {
+const SocialLinks = ({ socials, ...props }: PropsWithChildren<SocialLinksProps>) => {
   const { isMobile } = useMatchBreakpoints();
   const calculateMarginRight = (idx: number) => {
     if (idx === socials.length - 1) {
@@ -36,6 +36,6 @@ function SocialLinks({ socials, ...props }: PropsWithChildren<SocialLinksProps>)
     });
 
   return <Flex {...props}>{socialsIcons()}</Flex>;
-}
+};
 
 export default memo(SocialLinks);

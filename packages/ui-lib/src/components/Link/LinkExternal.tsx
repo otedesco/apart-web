@@ -2,7 +2,7 @@ import React from "react";
 import Link from "./Link";
 import { LinkProps } from "./types";
 
-function LinkExternal({ children, ...props }: React.PropsWithChildren<LinkProps>) {
+const LinkExternal = ({ children, ...props }: React.PropsWithChildren<LinkProps>) => {
   return (
     <Link external {...props}>
       {children}

@@ -2,7 +2,7 @@ import React from "react";
 import { StyledAnimatedIconComponent, StyledIconContainer } from "./styles";
 import { IconComponentType } from "./types";
 
-function AnimatedIconComponent({
+const AnimatedIconComponent = ({
   icon,
   fillIcon,
   color = "textSubtle",
@@ -10,7 +10,7 @@ function AnimatedIconComponent({
   activeBackgroundColor,
   isActive = false,
   ...props
-}: React.PropsWithChildren<IconComponentType>) {
+}: React.PropsWithChildren<IconComponentType>) => {
   const IconElement = icon;
   const IconElementFill = fillIcon;
 

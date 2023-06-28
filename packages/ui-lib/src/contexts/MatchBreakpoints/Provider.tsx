@@ -76,7 +76,7 @@ export const getBreakpointChecks = (state: State): BreakpointChecks => {
   };
 };
 
-export function MatchBreakpointsProvider({ children }: React.PropsWithChildren) {
+export const MatchBreakpointsProvider = ({ children }: React.PropsWithChildren) => {
   const [state, setState] = useState<BreakpointChecks>(() => getBreakpointChecks(getState()));
 
   useIsomorphicEffect(() => {

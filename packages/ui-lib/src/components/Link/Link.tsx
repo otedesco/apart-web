@@ -10,7 +10,7 @@ const StyledLink = styled(Text)<LinkProps>`
   width: fit-content;
 `;
 
-function Link({ external, ...props }: PropsWithChildren<LinkProps>) {
+const Link = ({ external, ...props }: PropsWithChildren<LinkProps>) => {
   const internalProps = external ? EXTERNAL_LINK_PROPS : {};
   return <StyledLink as="a" bold {...internalProps} {...props} />;
 }

@@ -1,7 +1,8 @@
 import { vars } from "ui/css/vars.css";
 import { Breakpoints, MediaQueries, ZIndices } from "./types";
+import { NavThemeType } from "../components/Header/theme";
 
-export interface PancakeTheme {
+export interface ApartTheme {
   siteWidth: number;
   isDark: boolean;
   colors: typeof vars.colors;
@@ -11,6 +12,9 @@ export interface PancakeTheme {
   shadows: typeof vars.shadows;
   radii: typeof vars.radii;
   zIndices: ZIndices;
+
+  // Components based themes
+  nav: NavThemeType;
 }
 
 export { darkColors, lightColors } from "./colors";

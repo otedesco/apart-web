@@ -8,7 +8,7 @@ const iconProps = {
   height: "16",
 };
 
-function Icon({
+const Icon = ({
   name,
   toggleTheme,
   selected,
@@ -16,7 +16,7 @@ function Icon({
   name: Theme;
   selected: boolean;
   toggleTheme: (theme: Theme) => void;
-}) {
+}) => {
   let I = DesktopIcon;
   if (name === "dark") I = MoonIcon;
   if (name === "light") I = SunIcon;
@@ -30,7 +30,7 @@ function Icon({
   );
 }
 
-function ThemeSwitcher({ theme, toggleTheme }: ThemeSwitcherProps) {
+const ThemeSwitcher = ({ theme, toggleTheme }: ThemeSwitcherProps) => {
   const values: Theme[] = ["light", "dark", "system"];
 
   return (

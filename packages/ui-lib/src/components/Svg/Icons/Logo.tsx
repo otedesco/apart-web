@@ -14,7 +14,7 @@ const useMouseEventListener = () => {
   return [isMouseInside, handleMouseEvent];
 };
 
-function DinamicStop({ color, stopColor, isMouseInside, ...rest }: any) {
+const DinamicStop = ({ color, stopColor, isMouseInside, ...rest }: any) => {
   return (
     <LazyMotion features={domAnimation}>
       <motion.stop
@@ -33,11 +33,11 @@ function DinamicStop({ color, stopColor, isMouseInside, ...rest }: any) {
   );
 }
 
-function StaticStop({ stopColor, ...rest }: any) {
+const StaticStop = ({ stopColor, ...rest }: any) => {
   return <stop stopColor={stopColor} {...rest} />;
 }
 
-function GradientDefinitions(props: any) {
+const GradientDefinitions = (props: any) => {
   const { color, dinamic, isMouseInside, fillerId, ...rest } = props;
   return (
     <defs>
@@ -49,7 +49,7 @@ function GradientDefinitions(props: any) {
   );
 }
 
-export function LogoIcon(props: any) {
+export const LogoIcon = (props: any) => {
   const { theme } = useTheme();
   const {
     gradient = false,
@@ -92,7 +92,7 @@ export function LogoIcon(props: any) {
   );
 }
 
-export function LogoWithTextIcon(props: any) {
+export const LogoWithTextIcon = (props: any) => {
   const { theme } = useTheme();
   const {
     gradient,
