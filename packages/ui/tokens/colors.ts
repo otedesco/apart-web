@@ -14,6 +14,7 @@ export const lightColors = {
   contrast: '#000',
   text: '#171717',
   textSubtle: '#666',
+  transparent: 'transparent',
 }
 
 export const darkColors = {
@@ -26,4 +27,5 @@ export const darkColors = {
   contrast: '#FFF',
   text: '#EDEDED',
   textSubtle: '#888',
+  transparent: 'transparent',
 }

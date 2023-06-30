@@ -1,40 +1,30 @@
 import { styled } from "styled-components";
-import { MENU_HEIGHT } from "./config";
+import { Flex } from "../Box";
 
-export const Wrapper = styled.div`
-  position: relative;
+export const Wrapper = styled(Flex)<{ $isTransparent: boolean }>`
+  position: sticky;
+  top: 0;
+  justify-content: center;
   width: 100%;
-  display: grid;
-  grid-template-rows: auto 1fr;
-`;
-
-export const FixedContainer = styled.div<{ showMenu: boolean; height: number }>`
-  position: fixed;
-  top: ${({ showMenu, height }) => (showMenu ? 0 : `-${height}px`)};
-  left: 0;
-  transition: top 0.2s;
-  height: ${({ height }) => `${height}px`};
-  width: 100%;
-  z-index: 20;
-`;
-
-export const StyledNav = styled.nav`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  height: ${MENU_HEIGHT}px;
-  background-color: ${({ theme }) => theme.nav.background};
-  border-bottom: 1px solid ${({ theme }) => theme.colors.cardBorder};
-  transform: translate3d(0, 0, 0);
-
-  padding-left: 16px;
-  padding-right: 16px;
-`;
-
-export const TopBannerContainer = styled.div<{ height: number }>`
-  height: ${({ height }) => `${height}px`};
-  min-height: ${({ height }) => `${height}px`};
-  max-height: ${({ height }) => `${height}px`};
-  width: 100%;
+  z-index: ${({ theme }) => theme.nav.zIndex};
+  min-height: ${({ theme }) => theme.nav.height};
+  transition: box-shadow 0.2s ease 0s, background-color 0.2s ease 0s;
+  ${({ $isTransparent, theme }) =>
+    !$isTransparent &&
+    `
+    background-color: ${theme.nav.background};
+    box-shadow: ${theme.nav.borderBottom};
+    transition: box-shadow 0.2s ease 0s, background-color 0.2s ease 0s;
+    &::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backdrop-filter: saturate(180%) blur(5px);
+      backface-visibility: hidden;
+      z-index: -1;
+      top: -1px;
+      transform: translateZ(0);
+    }
+  `}
 `;

@@ -1,9 +1,8 @@
-// import { MatchBreakpointsProvider } from "../src";
 import React, { useEffect } from "react";
 import { withThemeFromJSXProvider } from "@storybook/addon-styling";
 import { ThemeProvider } from "styled-components";
 
-import { default as GlobalStyles } from "../src/ResetCSS.tsx";
+import ResetCSS, { default as GlobalStyles } from "../src/ResetCSS.tsx";
 import { ThemeProvider as NextThemeProvider, useTheme as useNextTheme } from "next-themes";
 import { light, dark } from "../src/theme";
 
@@ -35,7 +34,12 @@ const StyledThemeProvider = (props) => {
     setTheme(props.theme.name);
   }, [props.theme.name]);
 
-  return <ThemeProvider {...props}>{props.children}</ThemeProvider>;
+  return (
+    <ThemeProvider {...props}>
+      <ResetCSS />
+      {props.children}
+    </ThemeProvider>
+  );
 };
 
 const StorybookThemeProvider = (props) => {

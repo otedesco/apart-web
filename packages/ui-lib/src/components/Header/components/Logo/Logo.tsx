@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
-import { HeaderContext } from "../context";
-import { Flex } from "../../Box";
-import { LogoIcon, LogoWithTextIcon } from "../../Svg";
+import { HeaderContext } from "../../context";
+import { Flex } from "../../../Box";
+import { LogoIcon, LogoWithTextIcon } from "../../../Svg";
 
 interface Props {
   href: string;
@@ -10,6 +10,8 @@ interface Props {
 
 const StyledLink = styled("a")`
   display: flex;
+  margin-right: auto;
+  width: 100%;
   .mobile-icon {
     width: 37px;
     ${({ theme }) => theme.mediaQueries.lg} {
@@ -36,7 +38,7 @@ const Logo: React.FC<React.PropsWithChildren<Props>> = ({ href }) => {
   );
 
   return (
-    <Flex alignItems="center">
+    <Flex alignItems="center" flex="1 1" justifyContent="center">
       {isAbsoluteUrl ? (
         <StyledLink as="a" href={href} aria-label="Apart home page">
           {innerLogo}

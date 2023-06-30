@@ -30,6 +30,7 @@ const ResetCSS = createGlobalStyle`
   body {
     line-height: 1;
     font-size: 16px;
+    background-color: ${({ theme }) => theme.colors.background}
   }
   ol,
   ul {

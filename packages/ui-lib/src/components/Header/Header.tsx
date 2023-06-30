@@ -1,44 +1,38 @@
-import { useMemo, useState } from "react";
-import { AtomBox } from "ui/components/AtomBox";
+import { useEffect, useState } from "react";
 import { useIsMounted } from "hooks";
-import { HeaderContext } from "./context";
-import { FixedContainer, StyledNav, TopBannerContainer, Wrapper } from "./styles";
-import { useMatchBreakpoints } from "../../contexts";
-import { MENU_HEIGHT, TOP_BANNER_HEIGHT, TOP_BANNER_HEIGHT_MOBILE } from "./config";
+import { Wrapper } from "./styles";
 import { Flex } from "../Box";
-import Logo from "./components/Logo";
+import { HeaderLogo } from "./components/Logo";
+import { Menu } from "./components/Menu";
 
-const Header = ({ linkComponent, banner, links = [] }: any) => {
-  const { isMobile } = useMatchBreakpoints();
+const Header = ({ linkComponent, banner, links = [], activeItem, activeSubItem }: any) => {
+  const [isTopOffPage, setIsTopOffPage] = useState(true);
   const isMounted = useIsMounted();
-  const [showMenu, setShowMenu] = useState(true);
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentOffset = window.scrollY;
+      const isTopOfPage = currentOffset === 0;
 
-  const homeLink = links.find((link: any) => link.label === "Home");
-  const topBannerHeight = isMobile ? TOP_BANNER_HEIGHT_MOBILE : TOP_BANNER_HEIGHT;
-  const totalTopMenuHeight = isMounted && banner ? MENU_HEIGHT + topBannerHeight : MENU_HEIGHT;
+      setIsTopOffPage(isTopOfPage);
+    };
 
-  const providerValue = useMemo(() => ({ linkComponent }), [linkComponent]);
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [isMounted]);
+
   return (
-    <HeaderContext.Provider value={providerValue}>
-      <AtomBox
-        asChild
-        minHeight={{
-          xs: "auto",
-          md: "100vh",
-        }}
-      >
-        <Wrapper>
-          <FixedContainer showMenu={showMenu} height={totalTopMenuHeight}>
-            {banner && isMounted && <TopBannerContainer height={topBannerHeight}>{banner}</TopBannerContainer>}
-            <StyledNav>
-              <Flex>
-                <Logo href={homeLink?.href ?? "/"} />
-              </Flex>
-            </StyledNav>
-          </FixedContainer>
-        </Wrapper>
-      </AtomBox>
-    </HeaderContext.Provider>
+    <Wrapper $isTransparent={isTopOffPage}>
+      <Flex as="header" flexDirection="row" alignItems="center" width={1} m="auto" px="24px">
+        <HeaderLogo href="/" />
+        <Menu />
+        <Flex alignItems="center" flex="1 1" justifyContent="center">
+          bar
+        </Flex>
+      </Flex>
+    </Wrapper>
   );
 };
 
