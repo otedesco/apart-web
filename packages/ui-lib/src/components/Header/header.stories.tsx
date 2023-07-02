@@ -1,8 +1,11 @@
 import React from "react";
 import _noop from "lodash/noop";
+import { Footer } from "../Footer";
 
 import Header from "./Header";
 import { Text } from "../Text";
+import { footerLinks, socials } from "../Footer/config";
+import { links } from "./testConfig";
 
 export default {
   title: "Layout/Header",
@@ -125,18 +128,10 @@ const ConnectedTemplate = (args) => {
           laboris nisi ut
         </Text>
       </div>
+      <Footer items={footerLinks} socials={socials} />
     </div>
   );
 };
 
 export const Connected = ConnectedTemplate.bind({});
-Connected.args = {};
-
-export const WithItems = {
-  args: {
-    links: [],
-    subLinks: [],
-    activeItem: "/swap",
-    activeSubItem: "https://exchange.pancakeswap.finance",
-  },
-};
+Connected.args = { links };

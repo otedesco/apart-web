@@ -1,10 +1,11 @@
 import styled from "styled-components";
 
-import { Box, Flex } from "../Box";
+import { Box, Flex, FlexProps } from "../Box";
 import SocialLinks from "./components/SocialLinks";
 
-export const StyledFooter = styled(Flex)`
+export const StyledFooter = styled(Flex)<FlexProps>`
   background: ${({ theme }) => theme.colors.backgroundAlt};
+  border-top: 1px solid ${({ theme }) => theme.colors.cardBorder};
 `;
 
 export const StyledList = styled.ul`

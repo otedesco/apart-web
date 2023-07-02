@@ -11,6 +11,46 @@ export const disappearAnimation = keyframes`
   to { opacity:0 }
 `;
 
+export const enterFromRightAnimation = keyframes`  
+    from {
+        opacity: 0;
+        transform: translateX(200px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }`;
+
+export const enterFromLeftAnimation = keyframes`
+    from {
+        opacity: 0;
+        transform: translateX(-200px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }`;
+
+export const exitToRightAnimation = keyframes`
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(200px);
+    }`;
+
+export const exitToLeftAnimation = keyframes`
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(-200px);
+    }`;
+
 export const animationHandler = (element: HTMLElement | null) => {
   if (!element) return;
   if (element.classList.contains("appear")) {

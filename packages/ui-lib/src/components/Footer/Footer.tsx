@@ -23,7 +23,13 @@ const Footer = ({ items, socials, ...props }: PropsWithChildren<FooterProps>) =>
   const { themeValue, setTheme } = useTheme();
 
   return (
-    <StyledFooter p={["40px 16px", null, "56px 40px 32px 40px"]} justifyContent="center" position="relative" {...props}>
+    <StyledFooter
+      as="footer"
+      p={["40px 16px", null, "56px 40px 32px 40px"]}
+      justifyContent="center"
+      position="relative"
+      {...props}
+    >
       <Flex flexDirection="column" width={["100%", null, "1200px;"]}>
         <StyledIconMobileContainer display={["block", null, "none"]}>
           <LogoWithTextIcon id="mobile" width="130px" gradient dinamic />
